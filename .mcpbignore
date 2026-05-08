@@ -1,0 +1,14 @@
+node_modules
+server
+*.ts
+tsconfig.json
+vitest.config.ts
+yarn.lock
+.gitignore
+.mcpbignore
+
+!dist
+!dist/**
+
+dist/**/*.map
+dist/*.mcpb

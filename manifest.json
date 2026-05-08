@@ -1,0 +1,125 @@
+{
+  "manifest_version": "0.3",
+  "name": "selects",
+  "display_name": "Selects",
+  "version": "0.1.0",
+  "description": "AI-powered video editing for Selects. Query transcripts, keep utterances, modify drafts, and install overlays — all from your Claude conversation.",
+  "long_description": "Selects is a desktop video editing application. This connector exposes Selects' tools to Claude Desktop so you can edit videos through natural conversation. The Selects desktop app must be installed and running for this connector to work. Download Selects at https://cutback.video/selects/install.",
+  "author": {
+    "name": "Cutback",
+    "email": "support@cutback.video",
+    "url": "https://cutback.video"
+  },
+  "homepage": "https://tryselects.com",
+  "support": "https://help.cutback.video/",
+  "icon": "icons/icon.png",
+  "server": {
+    "type": "node",
+    "entry_point": "dist/server/bridge.js",
+    "mcp_config": {
+      "command": "node",
+      "args": ["${__dirname}/dist/server/bridge.js"]
+    }
+  },
+  "tools_generated": true,
+  "tools": [
+    {
+      "name": "launch_app",
+      "description": "Launches the Selects desktop application if it is not already running. Use this when other tools fail with a connection error."
+    },
+    {
+      "name": "scan_directory",
+      "description": "Scan a directory for media files (video/audio) and return a per-directory summary or file list."
+    },
+    {
+      "name": "probe_media",
+      "description": "Read media file metadata: codec, duration, timecode, camera, and recording date."
+    },
+    {
+      "name": "compare_audio",
+      "description": "Compare audio fingerprints to detect files recorded simultaneously (same scene, different cameras/mics)."
+    },
+    {
+      "name": "create_project",
+      "description": "Create a Selects project from media file(s). Returns a workflowId for tracking progress."
+    },
+    {
+      "name": "get_workflow_status",
+      "description": "Get the current status of a project creation workflow."
+    },
+    {
+      "name": "wait_workflow",
+      "description": "Wait for a workflow to reach a terminal state (succeeded/failed/canceled)."
+    },
+    {
+      "name": "list_projects",
+      "description": "List all Selects projects."
+    },
+    {
+      "name": "list_project_drafts",
+      "description": "List drafts in a Selects project."
+    },
+    {
+      "name": "query",
+      "description": "Query transcripts across one or more Selects projects."
+    },
+    {
+      "name": "query_draft",
+      "description": "Query an edited sequence (draft) by sequence ID."
+    },
+    {
+      "name": "export_transcript",
+      "description": "Export a project transcript to a file on disk."
+    },
+    {
+      "name": "create_draft_from_transcript",
+      "description": "Create a new draft in a project from a transcript-based prompt."
+    },
+    {
+      "name": "export_draft_text",
+      "description": "Export the dialogue from an edited sequence to a file on disk."
+    },
+    {
+      "name": "draft_inspect",
+      "description": "Inspect an existing draft sequence."
+    },
+    {
+      "name": "draft_modify",
+      "description": "Modify an existing draft (add or remove utterances, change keep state)."
+    },
+    {
+      "name": "keep_utterances",
+      "description": "Create a new draft by keeping only the specified utterances from a transcript."
+    },
+    {
+      "name": "install_overlay",
+      "description": "Install an overlay component on a sequence. The component is sandboxed to the overlay rendering context."
+    },
+    {
+      "name": "update_overlay",
+      "description": "Update an existing overlay component on a sequence."
+    },
+    {
+      "name": "list_overlays",
+      "description": "List installed overlays on a sequence."
+    },
+    {
+      "name": "remove_overlay",
+      "description": "Remove an installed overlay from a sequence."
+    },
+    {
+      "name": "clear_overlays",
+      "description": "Remove all installed overlays from a sequence."
+    }
+  ],
+  "compatibility": {
+    "claude_desktop": ">=0.10.0",
+    "platforms": ["darwin", "win32"],
+    "runtimes": {
+      "node": ">=18.0.0"
+    }
+  },
+  "privacy_policies": ["https://cutback.video/privacy-policy"],
+  "license": "MIT",
+  "keywords": ["video", "editing", "transcription", "selects", "creative"]
+}

@@ -1,0 +1,48 @@
+{
+  "name": "selects-mcp-bridge",
+  "version": "0.1.0",
+  "description": "Stdio bridge that connects Claude Desktop to the Selects desktop app's local MCP server.",
+  "type": "module",
+  "main": "dist/server/bridge.js",
+  "bin": {
+    "selects-mcp-bridge": "dist/server/bridge.js"
+  },
+  "homepage": "https://tryselects.com",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CutbackVideo/selects-mcp.git"
+  },
+  "bugs": {
+    "url": "https://github.com/CutbackVideo/selects-mcp/issues"
+  },
+  "author": {
+    "name": "Cutback",
+    "email": "support@cutback.video",
+    "url": "https://cutback.video"
+  },
+  "files": [
+    "dist",
+    "icons",
+    "screenshots",
+    "manifest.json",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsx server/bridge.ts",
+    "test": "vitest run",
+    "pack": "yarn build && mcpb pack . dist/selects.mcpb",
+    "validate": "mcpb validate dist/selects.mcpb"
+  },
+  "devDependencies": {
+    "@anthropic-ai/mcpb": "^2.1.2",
+    "@types/node": "^20.0.0",
+    "tsx": "^4.7.0",
+    "typescript": "^5.8.3",
+    "vitest": "^2.1.4"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "license": "MIT"
+}
